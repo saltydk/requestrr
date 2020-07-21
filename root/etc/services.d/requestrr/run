@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+umask "${UMASK}"
+
+ASPNETCORE_URLS="http://*:4545" && export ASPNETCORE_URLS
+
+redirect_cmd() {
+    if [[ "${DEBUG}" == "yes" ]]; then
+        "$@"
+    else
+        "$@" > /dev/null 2>&1
+    fi
+}
+
+# shellcheck disable=SC2086
+redirect_cmd cd "${APP_DIR}" && exec s6-setuidgid hotio dotnet "${APP_DIR}/bin/Requestrr.WebApi.dll" ${ARGS}
