@@ -1,4 +1,4 @@
-FROM hotio/base:focal
+FROM hotio/dotnetcore:focal
 
 EXPOSE 4545
 
