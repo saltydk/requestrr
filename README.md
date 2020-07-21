@@ -1,6 +1,6 @@
 # requestrr
 
-<img src="https://raw.githubusercontent.com/hotio/docker-requestrr/master/img/requestrr.png" alt="Logo" height="130" width="130">
+<img src="https://raw.githubusercontent.com/hotio/docker-requestrr/master/img/requestrr.png" alt="Logo" height="130">
 
 [![GitHub](https://img.shields.io/badge/source-github-lightgrey)](https://github.com/hotio/docker-requestrr)
 [![Docker Pulls](https://img.shields.io/docker/pulls/hotio/requestrr)](https://hub.docker.com/r/hotio/requestrr)
