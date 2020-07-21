@@ -15,4 +15,4 @@ redirect_cmd() {
 }
 
 # shellcheck disable=SC2086
-redirect_cmd cd "${APP_DIR}/bin" && exec s6-setuidgid hotio dotnet "Requestrr.WebApi.dll" ${ARGS}
+redirect_cmd cd "${APP_DIR}/bin" && exec s6-setuidgid hotio "Requestrr.WebApi" ${ARGS}
