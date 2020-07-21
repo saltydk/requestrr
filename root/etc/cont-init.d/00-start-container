@@ -34,3 +34,9 @@ if [[ ! -d "${CONFIG_DIR}/app" ]]; then
     mkdir "${CONFIG_DIR}/app"
     chown hotio:hotio "${CONFIG_DIR}/app"
 fi
+
+if [[ ! -d "${CONFIG_DIR}/.dotnet" ]]; then
+    echo "Creating directory ${CONFIG_DIR}/.dotnet"
+    mkdir "${CONFIG_DIR}/.dotnet"
+    chown hotio:hotio "${CONFIG_DIR}/.dotnet"
+fi
