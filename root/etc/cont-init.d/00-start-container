@@ -40,3 +40,9 @@ if [[ ! -d "${CONFIG_DIR}/.dotnet" ]]; then
     mkdir "${CONFIG_DIR}/.dotnet"
     chown hotio:hotio "${CONFIG_DIR}/.dotnet"
 fi
+
+if [[ -d "${APP_DIR}/bin/config" ]]; then
+    echo "Creating link for config folder"
+    rmdir "${APP_DIR}/bin/config"
+    ln -s "${CONFIG_DIR}/app" "${APP_DIR}/bin/config"
+fi
