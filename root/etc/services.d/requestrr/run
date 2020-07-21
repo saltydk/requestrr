@@ -11,5 +11,6 @@ redirect_cmd() {
     fi
 }
 
+cd "${APP_DIR}/bin" || exit 1
 # shellcheck disable=SC2086
-redirect_cmd cd "${APP_DIR}/bin" && exec s6-setuidgid hotio "${APP_DIR}/bin/Requestrr.WebApi" ${ARGS}
+redirect_cmd exec s6-setuidgid hotio "${APP_DIR}/bin/Requestrr.WebApi" ${ARGS}
