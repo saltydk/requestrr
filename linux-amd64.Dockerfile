@@ -16,7 +16,7 @@ FROM hotio/dotnetcore@sha256:8c001114eb337abf662c02bd197a79d0371c1b3afb856cb0f9f
 EXPOSE 4545
 
 COPY --from=builder "/build/Requestrr.WebApi/publish/" "${APP_DIR}/"
-
+RUN ls -la /app
 RUN chmod -R u=rwX,go=rX "${APP_DIR}" && \
     rmdir "${APP_DIR}/config" && \
     ln -s "${CONFIG_DIR}/app" "${APP_DIR}/config" && \
