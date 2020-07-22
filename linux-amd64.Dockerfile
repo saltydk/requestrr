@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as builder
-
+ARG DEBIAN_FRONTEND="noninteractive"
 ARG REQUESTRR_VERSION
 
 RUN apt update && \
