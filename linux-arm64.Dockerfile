@@ -11,7 +11,7 @@ RUN apt update && \
     cd "/build/Requestrr.WebApi/ClientApp" && \
     npm install && \
     cd "/build/Requestrr.WebApi" && \
-    dotnet publish -c release -o publish -r linux-arm64
+    dotnet publish -c release -o publish -r linux-arm64 --self-contained
 
 FROM hotio/dotnetcore@sha256:a2ccc72af9374502faf34e4fcdace5724ffc27c080259141ac6d199f02dd868e
 
