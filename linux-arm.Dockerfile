@@ -5,7 +5,7 @@ ARG REQUESTRR_VERSION
 RUN apt update && \
     apt install -y software-properties-common && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt install -y npm && \
+    apt install -y nodejs && \
     mkdir /build && \
     curl -fsSL "https://github.com/darkalfx/requestrr/archive/V${REQUESTRR_VERSION}.tar.gz" | tar xzf - -C "/build" --strip-components=1 && \
     cd "/build/Requestrr.WebApi/ClientApp" && \
