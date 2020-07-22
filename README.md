@@ -28,16 +28,17 @@ The environment variables below are all optional, the values you see are the def
 
 ## Tags
 
-| Tag      | Description                    | Build Status                                                                                                                                                | Last Updated                                                                                                                                                        |
-| ---------|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| latest   | The same as `stable`           |                                                                                                                                                             |                                                                                                                                                                     |
-| stable   | Stable version                 | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-requestrr/status.svg?ref=refs/heads/stable)](https://cloud.drone.io/hotio/docker-requestrr) | [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-requestrr/stable)](https://github.com/hotio/docker-requestrr/commits/stable) |
+| Tag      | Description                    | Build Status                                                                                                                                                  | Last Updated                                                                                                                                                            |
+| ---------|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| latest   | The same as `stable`           |                                                                                                                                                               |                                                                                                                                                                         |
+| stable   | Stable releases                | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-requestrr/status.svg?ref=refs/heads/stable)](https://cloud.drone.io/hotio/docker-requestrr)   | [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-requestrr/stable)](https://github.com/hotio/docker-requestrr/commits/stable)     |
+| unstable | Every commit to master branch  | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-requestrr/status.svg?ref=refs/heads/unstable)](https://cloud.drone.io/hotio/docker-requestrr) | [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-requestrr/unstable)](https://github.com/hotio/docker-requestrr/commits/unstable) |
 
 You can also find tags that reference a commit or version number.
 
 ## Configuration location
 
-Your requestrr configuration inside the container is stored in `/config/app`, to migrate from another container, you'd probably have to move your files from `/root/config` to `/config/app`.
+Your configuration inside the container is stored in `/config/app`, to migrate from another container, you'd probably have to move your files from `/root/config` to `/config/app`.
 
 ## Executing your own scripts
 
