@@ -9,7 +9,7 @@ RUN apt update && \
     mkdir /build && \
     curl -fsSL "https://github.com/darkalfx/requestrr/archive/V${REQUESTRR_VERSION}.tar.gz" | tar xzf - -C "/build" --strip-components=1 && \
     cd "/build/Requestrr.WebApi/ClientApp" && \
-    npm install && \
+    rm -rf package-lock.json && npm install && \
     cd "/build/Requestrr.WebApi" && \
     dotnet publish -c release -o publish -r linux-x64
 
