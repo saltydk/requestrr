@@ -3,7 +3,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 ARG REQUESTRR_VERSION
 
 RUN apt update && \
-    apt install npm && \
+    apt install -y npm && \
     mkdir /build && \
     curl -fsSL "https://github.com/darkalfx/requestrr/archive/V${REQUESTRR_VERSION}.tar.gz" | tar xzf - -C "/build" --strip-components=1 && \
     cd "/build/Requestrr.WebApi/ClientApp" && \
