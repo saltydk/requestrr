@@ -11,11 +11,14 @@ RUN apt update && \
     cd "/build/Requestrr.WebApi/ClientApp" && \
     rm -rf package-lock.json && npm install && \
     cd "/build/Requestrr.WebApi" && \
-    dotnet publish -c release -o publish -r linux-arm64
+    dotnet publish -c release -o publish -r linux-musl-arm64
 
-FROM hotio/dotnetcore@sha256:a2ccc72af9374502faf34e4fcdace5724ffc27c080259141ac6d199f02dd868e
+FROM hotio/base@sha256:5c748f472fd4dda9c2332dbce09046f9b419d6776083ec17df1d4d8370eb5a0b
 
 EXPOSE 4545
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
+
+RUN apk add --no-cache libintl libstdc++
 
 COPY --from=builder "/build/Requestrr.WebApi/publish/" "${APP_DIR}/"
 

@@ -13,9 +13,10 @@ RUN apt update && \
     cd "/build/Requestrr.WebApi" && \
     dotnet publish -c release -o publish -r linux-arm
 
-FROM hotio/dotnetcore@sha256:3ed4d3982ca7336a7727ab4dd09669861f20c65a319db813b4770371c40e5bcd
+FROM hotio/base@sha256:4f26fe7bb656f83929e2da7622aed5267975bcf8ee523b6f3068ca024bcc1717
 
 EXPOSE 4545
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 
 COPY --from=builder "/build/Requestrr.WebApi/publish/" "${APP_DIR}/"
 
