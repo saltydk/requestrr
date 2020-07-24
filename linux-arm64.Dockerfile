@@ -16,9 +16,8 @@ RUN apt update && \
 FROM hotio/base@sha256:5c748f472fd4dda9c2332dbce09046f9b419d6776083ec17df1d4d8370eb5a0b
 
 EXPOSE 4545
-ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 
-RUN apk add --no-cache libintl libstdc++
+RUN apk add --no-cache libintl libstdc++ icu-libs
 
 COPY --from=builder "/build/Requestrr.WebApi/publish/" "${APP_DIR}/"
 
