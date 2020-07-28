@@ -3,7 +3,10 @@
 
 umask "${UMASK}"
 
-HOME="${CONFIG_DIR}" && export HOME
+HOME="${CONFIG_DIR}"                 && export HOME
+DOTNET_RUNNING_IN_CONTAINER=true     && export DOTNET_RUNNING_IN_CONTAINER
+DOTNET_USE_POLLING_FILE_WATCHER=true && export DOTNET_USE_POLLING_FILE_WATCHER
+NUGET_XMLDOC_MODE=skip               && export NUGET_XMLDOC_MODE
 
 redirect_cmd() {
     if [[ "${DEBUG}" == "yes" ]]; then
