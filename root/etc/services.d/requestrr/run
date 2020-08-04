@@ -10,9 +10,9 @@ NUGET_XMLDOC_MODE=skip               && export NUGET_XMLDOC_MODE
 
 redirect_cmd() {
     if [[ "${DEBUG}" == "yes" ]]; then
-        "$@"
+        "$@" 2>&1 | tee -a "${CONFIG_DIR}/app/requestrr.log"
     else
-        "$@" > /dev/null 2>&1
+        "$@" >> "${CONFIG_DIR}/app/requestrr.log" 2>&1
     fi
 }
 
