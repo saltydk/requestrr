@@ -29,11 +29,11 @@ The environment variables below are all optional, the values you see are the def
 
 ## Tags
 
-| Tag      | Description                    | Build Status                                                                                                                                                  | Last Updated                                                                                                                                                            |
-| ---------|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| latest   | The same as `stable`           |                                                                                                                                                               |                                                                                                                                                                         |
-| stable   | Stable releases                | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-requestrr/status.svg?ref=refs/heads/stable)](https://cloud.drone.io/hotio/docker-requestrr)   | [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-requestrr/stable)](https://github.com/hotio/docker-requestrr/commits/stable)     |
-| unstable | Every commit to master branch  | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-requestrr/status.svg?ref=refs/heads/unstable)](https://cloud.drone.io/hotio/docker-requestrr) | [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-requestrr/unstable)](https://github.com/hotio/docker-requestrr/commits/unstable) |
+| Tag      | Description                    |
+| ---------|--------------------------------|
+| latest   | The same as `stable`           |
+| stable   | Stable releases                |
+| unstable | Every commit to master branch  |
 
 You can also find tags that reference a commit or version number.
 
