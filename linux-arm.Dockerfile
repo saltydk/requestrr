@@ -13,7 +13,7 @@ RUN apt update && \
     cd "/build/Requestrr.WebApi" && \
     dotnet publish -c release -o publish -r linux-arm
 
-FROM hotio/base@sha256:b4ae43c7c41cd2b139947ed6dc05db80858d319a07ee809550971307314f6c04
+FROM hotio/base@sha256:647b3343e2da23b4b65091232db767fd71984693f97e16f0473d9a8d3c511ae6
 
 EXPOSE 4545
 
