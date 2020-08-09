@@ -33,7 +33,6 @@ The environment variables below are all optional, the values you see are the def
 | ---------|--------------------------------|
 | latest   | The same as `stable`           |
 | stable   | Stable releases                |
-| unstable | Every commit to master branch  |
 
 You can also find tags that reference a commit or version number.
 
