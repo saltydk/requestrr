@@ -3,7 +3,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 ARG REQUESTRR_VERSION
 
 RUN apt update && \
-    apt install -y unzip && \
+    apt install -y unzip curl && \
     zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${REQUESTRR_VERSION}/requestrr-linux-arm.zip" && unzip -q "${zipfile}" -d "/"
 
 FROM hotio/base@sha256:eb0a2567e799423b40339bac6d50be0e130098233c53253acf730757677f136f
