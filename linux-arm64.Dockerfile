@@ -20,7 +20,7 @@ EXPOSE 4545
 # install packages
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
-        libicu60 && \
+        libicu66 && \
 # clean up
     apt autoremove -y && \
     apt clean && \
