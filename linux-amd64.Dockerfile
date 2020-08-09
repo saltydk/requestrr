@@ -1,17 +1,10 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as builder
+FROM ubuntu:focal as builder
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG REQUESTRR_VERSION
 
 RUN apt update && \
-    apt install -y software-properties-common && \
-    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt install -y gcc g++ make nodejs && \
-    mkdir /build && \
-    curl -fsSL "https://github.com/darkalfx/requestrr/archive/V${REQUESTRR_VERSION}.tar.gz" | tar xzf - -C "/build" --strip-components=1 && \
-    cd "/build/Requestrr.WebApi/ClientApp" && \
-    rm -rf package-lock.json && npm install && \
-    cd "/build/Requestrr.WebApi" && \
-    dotnet publish -c release -o publish -r linux-x64
+    apt install -y unzip && \
+    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${REQUESTRR_VERSION}/requestrr-linux-x64.zip" && unzip -q "${zipfile}" -d "/"
 
 FROM hotio/base@sha256:6025185ae92d96331054d9408eae864e583524286f095c523c0a251617e4d772
 
@@ -26,7 +19,7 @@ RUN apt update && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
-COPY --from=builder "/build/Requestrr.WebApi/publish/" "${APP_DIR}/"
+COPY --from=builder "/requestrr-linux-x64/" "${APP_DIR}/"
 
 RUN chmod -R u=rwX,go=rX "${APP_DIR}" && \
     ln -s "${CONFIG_DIR}/app" "${APP_DIR}/config" && \
