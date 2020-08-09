@@ -11,13 +11,20 @@ RUN apt update && \
     cd "/build/Requestrr.WebApi/ClientApp" && \
     rm -rf package-lock.json && npm install && \
     cd "/build/Requestrr.WebApi" && \
-    dotnet publish -c release -o publish -r linux-musl-x64
+    dotnet publish -c release -o publish -r linux-x64
 
-FROM hotio/base@sha256:04bac33ed8094edb3100b0f4482d4c605a1bbbac7128ba994269b6b889842fdb
+FROM hotio/base@sha256:6025185ae92d96331054d9408eae864e583524286f095c523c0a251617e4d772
 
 EXPOSE 4545
 
-RUN apk add --no-cache libintl libstdc++ icu-libs
+# install packages
+RUN apt update && \
+    apt install -y --no-install-recommends --no-install-suggests \
+        libicu66 && \
+# clean up
+    apt autoremove -y && \
+    apt clean && \
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 COPY --from=builder "/build/Requestrr.WebApi/publish/" "${APP_DIR}/"
 
@@ -26,3 +33,18 @@ RUN chmod -R u=rwX,go=rX "${APP_DIR}" && \
     chmod -R ugo+x "${APP_DIR}/Requestrr.WebApi"
 
 COPY root/ /
+
+ARG LABEL_CREATED
+LABEL org.opencontainers.image.created=$LABEL_CREATED
+ARG LABEL_TITLE
+LABEL org.opencontainers.image.title=$LABEL_TITLE
+ARG LABEL_REVISION
+LABEL org.opencontainers.image.revision=$LABEL_REVISION
+ARG LABEL_SOURCE
+LABEL org.opencontainers.image.source=$LABEL_SOURCE
+ARG LABEL_VENDOR
+LABEL org.opencontainers.image.vendor=$LABEL_VENDOR
+ARG LABEL_URL
+LABEL org.opencontainers.image.url=$LABEL_URL
+ARG LABEL_VERSION
+LABEL org.opencontainers.image.version=$LABEL_VERSION
