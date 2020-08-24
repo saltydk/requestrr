@@ -4,7 +4,7 @@ ARG REQUESTRR_VERSION
 
 RUN apt update && \
     apt install -y unzip curl && \
-    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${REQUESTRR_VERSION}/requestrr-linux-x64.zip" && unzip -q "${zipfile}" -d "/" || true
+    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${REQUESTRR_VERSION}/requestrr-linux-x64.zip" && unzip -q "${zipfile}" -d "/"
 
 FROM hotio/base@sha256:7cd0db216b77704532cecb0fdf8d99e46e8623eaf1d813b689bfd43b78b6ab20
 
