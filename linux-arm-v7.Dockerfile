@@ -6,7 +6,7 @@ RUN apt update && \
     apt install -y unzip curl && \
     zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${REQUESTRR_VERSION}/requestrr-linux-arm.zip" && unzip -q "${zipfile}" -d "/"
 
-FROM hotio/base@sha256:211aaaa1b7f963998ff57c198db0d1c17333e5e8f2f2e72fa096bb17c8aa3826
+FROM hotio/base@sha256:405ff73b52f7201b24702621d56d2a8c6bfa03980618dd496eb138e9cb4c175a
 
 EXPOSE 4545
 
