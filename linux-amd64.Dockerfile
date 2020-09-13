@@ -1,10 +1,10 @@
 FROM ubuntu:focal as builder
 ARG DEBIAN_FRONTEND="noninteractive"
-ARG REQUESTRR_VERSION
+ARG VERSION
 
 RUN apt update && \
     apt install -y unzip curl && \
-    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${REQUESTRR_VERSION}/requestrr-linux-x64.zip" && unzip -q "${zipfile}" -d "/"
+    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${VERSION}/requestrr-linux-x64.zip" && unzip -q "${zipfile}" -d "/"
 
 FROM hotio/base@sha256:23b47f1526640e02bdc436cdb95dab3c42cc482509aba84276146a1bf93f80d1
 
@@ -27,18 +27,3 @@ RUN chmod -R u=rwX,go=rX "${APP_DIR}" && \
     chmod -R ugo+x "${APP_DIR}/Requestrr.WebApi"
 
 COPY root/ /
-
-ARG LABEL_CREATED
-LABEL org.opencontainers.image.created=$LABEL_CREATED
-ARG LABEL_TITLE
-LABEL org.opencontainers.image.title=$LABEL_TITLE
-ARG LABEL_REVISION
-LABEL org.opencontainers.image.revision=$LABEL_REVISION
-ARG LABEL_SOURCE
-LABEL org.opencontainers.image.source=$LABEL_SOURCE
-ARG LABEL_VENDOR
-LABEL org.opencontainers.image.vendor=$LABEL_VENDOR
-ARG LABEL_URL
-LABEL org.opencontainers.image.url=$LABEL_URL
-ARG LABEL_VERSION
-LABEL org.opencontainers.image.version=$LABEL_VERSION
