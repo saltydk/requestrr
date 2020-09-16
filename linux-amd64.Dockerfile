@@ -6,7 +6,7 @@ RUN apt update && \
     apt install -y unzip curl && \
     zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${VERSION}/requestrr-linux-x64.zip" && unzip -q "${zipfile}" -d "/"
 
-FROM hotio/base@sha256:39c9e859e90f0a5a2c984e252279684d9454ab38b7c06cfd02a6770dba1f78aa
+FROM hotio/base@sha256:2ce653270bcd7dd74b7a451c92c8618f3ee300a80456f8d5d05c31d8d5074ed0
 
 EXPOSE 4545
 
