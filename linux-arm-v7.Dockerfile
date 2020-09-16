@@ -4,7 +4,10 @@ ARG VERSION
 
 RUN apt update && \
     apt install -y unzip curl && \
-    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${VERSION}/requestrr-linux-arm.zip" && unzip -q "${zipfile}" -d "/"
+    zipfile="/tmp/app.zip" && curl -fsSL -o "${zipfile}" "https://github.com/darkalfx/requestrr/releases/download/V${VERSION}/requestrr-linux-arm.zip" && unzip -q "${zipfile}" -d "/" && \
+    rmdir "/requestrr-linux-arm/config" && \
+    chmod -R u=rwX,go=rX "/requestrr-linux-arm/" && \
+    chmod -R ugo+x "/requestrr-linux-arm/Requestrr.WebApi"
 
 FROM hotio/base@sha256:bc4c37fbea420f51bdf02df45f683a1236ad3f32ad728665bf92d219ca2a8c52
 
@@ -21,9 +24,6 @@ RUN apt update && \
 
 COPY --from=builder "/requestrr-linux-arm/" "${APP_DIR}/"
 
-RUN chmod -R u=rwX,go=rX "${APP_DIR}" && \
-    rmdir "${APP_DIR}/config" && \
-    ln -s "${CONFIG_DIR}/app" "${APP_DIR}/config" && \
-    chmod -R ugo+x "${APP_DIR}/Requestrr.WebApi"
+RUN ln -s "${CONFIG_DIR}/app" "${APP_DIR}/config"
 
 COPY root/ /
