@@ -8,14 +8,6 @@ DOTNET_RUNNING_IN_CONTAINER=true     && export DOTNET_RUNNING_IN_CONTAINER
 DOTNET_USE_POLLING_FILE_WATCHER=true && export DOTNET_USE_POLLING_FILE_WATCHER
 NUGET_XMLDOC_MODE=skip               && export NUGET_XMLDOC_MODE
 
-redirect_cmd() {
-    if [[ "${DEBUG}" == "yes" ]]; then
-        "$@" 2>&1 | s6-setuidgid hotio tee -a "${CONFIG_DIR}/app/requestrr.log"
-    else
-        "$@" >> "${CONFIG_DIR}/app/requestrr.log" 2>&1
-    fi
-}
-
 cd "${APP_DIR}" || exit 1
 # shellcheck disable=SC2086
-redirect_cmd exec s6-setuidgid hotio "${APP_DIR}/Requestrr.WebApi" ${ARGS}
+exec s6-setuidgid hotio "${APP_DIR}/Requestrr.WebApi" ${ARGS}
