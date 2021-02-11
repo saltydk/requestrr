@@ -24,6 +24,6 @@ RUN apt update && \
 
 COPY --from=builder "/requestrr-linux-x64/" "${APP_DIR}/"
 
-RUN ln -s "${CONFIG_DIR}/app" "${APP_DIR}/config"
+RUN ln -s "${CONFIG_DIR}" "${APP_DIR}/config"
 
 COPY root/ /
