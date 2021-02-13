@@ -9,5 +9,4 @@ DOTNET_USE_POLLING_FILE_WATCHER=true && export DOTNET_USE_POLLING_FILE_WATCHER
 NUGET_XMLDOC_MODE=skip               && export NUGET_XMLDOC_MODE
 
 cd "${APP_DIR}" || exit 1
-# shellcheck disable=SC2086
-exec s6-setuidgid hotio "${APP_DIR}/Requestrr.WebApi" ${ARGS}
+exec s6-setuidgid hotio "${APP_DIR}/Requestrr.WebApi"
