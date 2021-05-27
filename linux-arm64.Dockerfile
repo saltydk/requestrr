@@ -9,7 +9,7 @@ RUN apt update && \
     chmod -R u=rwX,go=rX "/requestrr-linux-arm64/" && \
     chmod -R ugo+x "/requestrr-linux-arm64/Requestrr.WebApi"
 
-FROM hotio/base@sha256:851b4da5edf243caa6b8742ea582cf67943d11fbd4f7bcc7a3f1558cc52cfdf0
+FROM hotio/base@sha256:d7e939247f1efc9a488ee664be14932ca4567b7a86dd588fbbfc5f1d910e304d
 
 EXPOSE 4545
 
